@@ -55,12 +55,15 @@ class RootDetectorPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                 result.success(isRoot)
             }
         } catch (e: IllegalArgumentException) {
-            result.error(e.message, e.message, e.stackTrace)
+            var message = "error message"
+            if (e.message !=  null) {
+                message = e.message!!
+            }
+            result.error(message, message, e.stackTrace)
         }
     }
 
     // Get check root status in devices have the busybox binary
-    // Example devices have a busybox:
     // - All OnePlus Devices
     // - Moto E
     // - OPPO R9m (ColorOS 3.0,Android 5.1,Android security patch January 5, 2018 )
@@ -73,7 +76,11 @@ class RootDetectorPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                 result.success(isRoot)
             }
         } catch (e: IllegalArgumentException) {
-            result.error(e.message, e.message, e.stackTrace)
+            var message = "error message"
+            if (e.message !=  null) {
+                message = e.message!!
+            }
+            result.error(message, message, e.stackTrace)
         }
     }
 
